@@ -12,7 +12,11 @@ public class Payroll {
         return myMonthIncome.getGrossIncome();
     }
 
-    public double getNetIncome() {
+    public double getNetIncomeAfterTax() {
         return new MyMonthIncomeAfterTax(myMonthIncome).getNetIncome();
+    }
+
+    public double getNetIncomeAfterSocialInsurance() {
+        return new MyMonthIncomeAfterSocialInsurance(myMonthIncome).getNetIncome();
     }
 }

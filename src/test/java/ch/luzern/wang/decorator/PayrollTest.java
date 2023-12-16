@@ -14,7 +14,14 @@ class PayrollTest {
     @Test
     void netIncomeAfterTax() {
         Payroll testee = new Payroll(new MyMonthIncome());
-        double actual = testee.getNetIncome();
+        double actual = testee.getNetIncomeAfterTax();
         Assertions.assertThat(actual).isEqualTo(5900.00*0.8);
+    }
+
+    @Test
+    void netIncomeAfterSocialInsurance() {
+        Payroll testee = new Payroll(new MyMonthIncome());
+        double actual = testee.getNetIncomeAfterSocialInsurance();
+        Assertions.assertThat(actual).isEqualTo(5900.00*0.9);
     }
 }
