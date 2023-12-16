@@ -1,5 +1,8 @@
 package ch.luzern.wang.decorator;
 
+/**
+ * This class is not a part of Decorator Pattern, it is just a client for using the Decorator Pattern code.
+ */
 public class Payroll {
 
     private final MyMonthIncome myMonthIncome;
