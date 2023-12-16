@@ -19,4 +19,16 @@ public class Payroll {
     public double getNetIncomeAfterSocialInsurance() {
         return new MyMonthIncomeAfterSocialInsurance(myMonthIncome).getNetIncome();
     }
+
+    public double getNetIncomeAfterSocialInsuranceAndTax() {
+        return new MyMonthIncomeAfterTax(new MyMonthIncomeAfterSocialInsurance(myMonthIncome)).getNetIncome();
+    }
+
+    public double getNetIncomeAfterSocialInsuranceAndTaxAndUnemploymentInsurance() {
+        return new MyMonthIncomeAfterUnemploymentInsurance(new MyMonthIncomeAfterTax(new MyMonthIncomeAfterSocialInsurance(myMonthIncome))).getNetIncome();
+    }
+
+    public double getNetIncomeAfterTaxAndUnemploymentInsuranceAndSocialInsurance() {
+        return new MyMonthIncomeAfterSocialInsurance(new MyMonthIncomeAfterUnemploymentInsurance(new MyMonthIncomeAfterTax(myMonthIncome))).getNetIncome();
+    }
 }

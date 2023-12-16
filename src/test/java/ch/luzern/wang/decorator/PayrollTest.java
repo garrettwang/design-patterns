@@ -24,4 +24,23 @@ class PayrollTest {
         double actual = testee.getNetIncomeAfterSocialInsurance();
         Assertions.assertThat(actual).isEqualTo(5900.00*0.9);
     }
+
+    @Test
+    void netIncomeAfterSocialInsuranceAndTax() {
+        Payroll testee = new Payroll(new MyMonthIncome());
+        double actual = testee.getNetIncomeAfterSocialInsuranceAndTax();
+        Assertions.assertThat(actual).isEqualTo(5900.00 - 5900.00*0.2 -5900.00*0.1);
+    }
+    @Test
+    void netIncomeAfterSocialInsuranceAndTaxAndUnemploymentInsurance() {
+        Payroll testee = new Payroll(new MyMonthIncome());
+        double actual = testee.getNetIncomeAfterSocialInsuranceAndTaxAndUnemploymentInsurance();
+        Assertions.assertThat(actual).isEqualTo(5900.00 - 5900.00*0.2 -5900.00*0.1 -5900.00*0.05);
+    }
+    @Test
+    void netIncomeAfterTaxAndUnemploymentInsuranceAndSocialInsurance() {
+        Payroll testee = new Payroll(new MyMonthIncome());
+        double actual = testee.getNetIncomeAfterTaxAndUnemploymentInsuranceAndSocialInsurance();
+        Assertions.assertThat(actual).isEqualTo(5900.00 - 5900.00*0.2 -5900.00*0.1 -5900.00*0.05);
+    }
 }

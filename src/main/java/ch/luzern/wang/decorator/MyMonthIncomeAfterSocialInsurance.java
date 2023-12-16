@@ -1,20 +1,17 @@
 package ch.luzern.wang.decorator;
 
-public class MyMonthIncomeAfterSocialInsurance implements MonthIncome{
+/**
+ * This is one of the concrete Decorator class
+ */
+public class MyMonthIncomeAfterSocialInsurance extends MyMonthIncomeAfterFixedFee{
     public static final double SOCIAL_INSURANCE_RATE = 0.1;
-    private final MyMonthIncome myMonthIncome;
 
-    public MyMonthIncomeAfterSocialInsurance(MyMonthIncome myMonthIncome) {
-        this.myMonthIncome = myMonthIncome;
+    public MyMonthIncomeAfterSocialInsurance(MonthIncome monthIncome) {
+        super(monthIncome);
     }
 
-    @Override
-    public double getGrossIncome() {
-        return myMonthIncome.getGrossIncome();
-    }
-
-    @Override
-    public double getNetIncome() {
-        return getGrossIncome() - getGrossIncome() * SOCIAL_INSURANCE_RATE;
+     @Override
+    public double subtract() {
+        return super.subtract() + getGrossIncome() * SOCIAL_INSURANCE_RATE;
     }
 }

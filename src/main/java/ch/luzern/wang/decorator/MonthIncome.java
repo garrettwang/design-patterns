@@ -5,4 +5,6 @@ public interface MonthIncome {
     double getGrossIncome();
     double getNetIncome();
 
+    double subtract();
+
 }
